@@ -8,7 +8,8 @@
   "main": "healthapp.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "calculateBmi": "tsc && node healthapp.ts"
+    "calculateBmi": "tsc && node healthapp.ts",
+    "calculateExercises": "tsc && node exerciseCalculator.ts"
   },
   "devDependencies": {
     "@types/node": "^26.4.1",
