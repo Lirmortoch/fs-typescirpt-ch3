@@ -1,4 +1,6 @@
-const calculateBmi = (weightInKilos: number, heightInCentimeters: number): string => {
+import { argv } from 'node:process';
+
+const calculateBmi = (heightInCentimeters: number, weightInKilos: number): string => {
   const heightInMeters = heightInCentimeters / 100;
   const bmiIndex = weightInKilos / (heightInMeters ** 2);
 
@@ -17,7 +19,8 @@ const calculateBmi = (weightInKilos: number, heightInCentimeters: number): strin
 }
 
 try {
-  console.log(calculateBmi(90, 180));
+  const [weightInKilos, heightInCentimeters] = argv.slice(2).map(Number);
+  console.log(calculateBmi(weightInKilos, heightInCentimeters));
 }
 catch (error: unknown) {
   let errorMessage = 'Something went wrong: ';

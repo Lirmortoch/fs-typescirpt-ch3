@@ -1,3 +1,5 @@
+import { argv } from 'node:process';
+
 interface calculateExercisesObject {
   periodLength: number,
   trainingDays: number,
@@ -48,7 +50,11 @@ const calculateExercises = (dailyExerciseHours: number[], targetAmount: number):
 }
 
 try {
-  console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2));
+  const arr = argv.slice(2);
+
+  const target = Number(arr[0]);
+  const trainingDays = arr.slice(1).map(Number);
+  console.log(calculateExercises(trainingDays, target));
 }
 catch (error: unknown) {
   let errorMessage = 'Something went wrong: ';
