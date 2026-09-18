@@ -1,10 +1,6 @@
 import { argv } from 'node:process';
 
 export const calculateBmi = (heightInCentimeters: number, weightInKilos: number): string => {
-  if (process.argv[1] === import.meta.filename) {
-    return 'Can\'t run this code if module imported';
-  }
-
   const heightInMeters = heightInCentimeters / 100;
   const bmiIndex = weightInKilos / (heightInMeters ** 2);
 
