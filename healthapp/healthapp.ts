@@ -18,16 +18,18 @@ export const calculateBmi = (heightInCentimeters: number, weightInKilos: number)
   }
 }
 
-try {
-  const [weightInKilos, heightInCentimeters] = argv.slice(2).map(Number);
-  console.log(calculateBmi(weightInKilos, heightInCentimeters));
-}
-catch (error: unknown) {
-  let errorMessage = 'Something went wrong: ';
-
-  if (error instanceof Error) {
-    errorMessage += error.message;
+if (argv[2] === import.meta.filename) {
+  try {
+    const [weightInKilos, heightInCentimeters] = argv.slice(2).map(Number);
+    console.log(calculateBmi(weightInKilos, heightInCentimeters));
   }
+  catch (error: unknown) {
+    let errorMessage = 'Something went wrong: ';
 
-  console.log(errorMessage, 'here');
-}
+    if (error instanceof Error) {
+      errorMessage += error.message;
+    }
+
+    console.log(errorMessage, 'here');
+  }   
+}  
