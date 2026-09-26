@@ -35,9 +35,9 @@ export const calculateExercises = (
   // result.success = result.average === targetAmount;
   // result.rating = result.success ? 3 : result.average >= targetAmount - 1 ? 2 : 1;
   // result.ratingDescription = result.rating === 3 ? 'You did great! Keep going!' : result.rating === 2 ? 'not too bad but could be better' : 'Try again and you\'ll improve';
-
+  
   const average =
-    dailyExerciseHours.reduce((acc, hours) => (acc += hours), 0) /
+    dailyExerciseHours.reduce((acc, hours) => acc + hours, 0) /
     dailyExerciseHours.length;
   const success = average === targetAmount;
   const rating = success ? 3 : average >= targetAmount - 1 ? 2 : 1,
@@ -51,9 +51,9 @@ export const calculateExercises = (
   return {
     periodLength: dailyExerciseHours.length,
     trainingDays: dailyExerciseHours.reduce(
-      (acc, hours) => (hours > 0 ? ++acc : acc),
+      (acc, hours) => (hours > 0 ? acc + 1 : acc),
       0,
-    ), // dailyExerciseHours.filter(item => item > 0).length
+    ),
     success: success,
     rating: rating,
     ratingDescription: ratingDescription,

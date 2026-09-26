@@ -16,7 +16,7 @@ export const calculateBmi = (heightInCentimeters: number, weightInKilos: number)
   else {
     return `Can't calculate BMI index`;
   }
-}
+};
 
 if (argv[2] === import.meta.filename) {
   try {
