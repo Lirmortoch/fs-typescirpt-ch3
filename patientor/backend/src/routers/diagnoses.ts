@@ -1,5 +1,4 @@
 import express from 'express';
-import type { Response } from 'express';
 
 import diagnosesService from '../services/diagnosesService.ts';
 
